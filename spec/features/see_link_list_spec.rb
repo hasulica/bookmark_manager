@@ -1,11 +1,17 @@
 require 'spec_helper'
 
 feature "show list of all saved links" do
-  Link.create(url: "http://www.makersacademy.com/", title: 'Makers Academy')
 
-  visit('/links')
+  scenario 'I can see existing links on the links page' do
 
-  within 'ul#links' do
-    expect(page).to have_content('Makers Academy')
+    Link.create(url: "http://www.makersacademy.com/", title: 'Makers Academy')
+
+    visit('/links')
+
+    expect(page.status_code).to eq 200
+
+    within 'ul#links' do
+      expect(page).to have_content('Makers Academy')
+    end
   end
 end
