@@ -1,7 +1,7 @@
 <ul>
   <% @links.each do |link| %>
-  <% if link.tags.include?(@filter) %>
-    <li> <%= link.title %> : <%= link.url %> </li>
+
+    <li> <%= link.title %> : <%= link.url %> : <%= link.tags.map{|tag| tag.name}.to_s %> </li>
   <% end %>
-  <% end %>
+
 </ul>
