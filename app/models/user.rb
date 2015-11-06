@@ -11,7 +11,7 @@ class User
   property :password_hash, Text
 
   def password=(new_password)
-    self.password_hash = BCrypt::Password.create(new_password)
+    self.password_hash = Password.create(new_password)
   end
 
 end
